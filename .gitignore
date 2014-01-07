@@ -17,3 +17,5 @@
 config/initializers/secret_token.rb
 *.DS_Store
 config/database.yml
+*.swp
+*.un~
