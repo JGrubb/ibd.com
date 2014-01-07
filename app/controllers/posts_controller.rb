@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to post_date_path(@post.created_at.year, @post.created_at.month, @post.slug), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to post_date_path(@post.created_at.year, @post.created_at.month, @post.slug), notice: 'Post was successfully created.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
