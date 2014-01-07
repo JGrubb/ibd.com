@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Ignored By Dinosaurs" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,8 +12,18 @@
   </head>
 
   <body>
+    <div id="header">
+      <div class="row">
+        <h1 class="large-12"><%= link_to "Ignored By Dinosaurs", root_path %></h1>
+      </div>
+    </div>
 
     <%= yield %>
+    <div id="footer">
+      <div class="row">
+
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
