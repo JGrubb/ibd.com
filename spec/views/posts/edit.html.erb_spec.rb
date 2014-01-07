@@ -6,7 +6,6 @@ describe "posts/edit" do
       :title => "MyString",
       :body => "MyText",
       :summary => "MyText",
-      :slug => "MyString"
     ))
   end
 
@@ -18,7 +17,6 @@ describe "posts/edit" do
       assert_select "input#post_title[name=?]", "post[title]"
       assert_select "textarea#post_body[name=?]", "post[body]"
       assert_select "textarea#post_summary[name=?]", "post[summary]"
-      assert_select "input#post_slug[name=?]", "post[slug]"
     end
   end
 end
