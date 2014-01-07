@@ -1,8 +1,8 @@
 <div class="row">
   <% @posts.each do |post| %>
     <div class="post">
-      <h2><%= link_to post.title, post_date_path(post.created_at.year, post.created_at.month, post.slug) %></h2>
-      <div><%= simple_format post.body %></div>
+      <h2><%= link_to post.title, post_date_path_helper(post) %></h2>
+      <div><%= markdown_filter post.body %></div>
     </div>
   <% end %>
 </div>

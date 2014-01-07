@@ -10,6 +10,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'friendly_id', '~> 5.0.0'
 gem 'textacular'
+gem 'redcarpet'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
