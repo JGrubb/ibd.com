@@ -17,6 +17,20 @@
     font-size: 85%;
     line-height: 1.5;
   }
+  .body {
+  }
+}
+
+#archive {
+  .post {
+    margin-bottom: 2em;
+    height: 8em;
+  }
+  time {
+    color: #666;
+    font-size: 90%;
+    font-style: italic;
+  }
 }
 
 pre {

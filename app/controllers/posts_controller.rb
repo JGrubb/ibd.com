@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @posts = Post.where(published: true).order('created_at DESC').limit(5)
   end
 
+  def archive
+    @posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
