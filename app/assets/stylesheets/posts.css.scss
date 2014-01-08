@@ -5,8 +5,9 @@
 .edit_post, .new_post {
   textarea {
     line-height: 1.5;
+    font-family: monaco, monospace;
     &#post_body {
-      min-height: 15em;
+      min-height: 25em;
     }
   }
 }

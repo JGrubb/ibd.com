@@ -1,22 +1,14 @@
 <div id="post" class="row">
 
-  <div class="large-8 medium-8 column">
+  <div class="large-8 medium-8 large-centered medium-centered column">
     <div>
       <h2 class="title"><%= @post.title %></h2>
     </div>
     <div class="body">
       <%= markdown_filter @post.body %>
     </div>
-  </div>
-
-  <aside id="bio" class="large-4 medium-4 column">
-    <h4>Hello.</h4>
-    <p>You probably know me or have known me, but this is my blog. My name is John or Johnny, depending on what time of day we typically talk. I'm a musician and web developer, which means that I make web sites work. This site is the home of my consultancy. <a href="mailto:therealjohnnygrubb@gmail.com">Please feel free to drop me a line</a>.</p>
-  </aside>
-
-
-  <div class="large-12 column">
-  <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Back', posts_path %>
   </div>
+
 </div>
