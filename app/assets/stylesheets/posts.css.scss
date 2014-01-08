@@ -24,7 +24,11 @@
 #archive {
   .post {
     margin-bottom: 2em;
-    height: 8em;
+    @media #{$large-up} {
+      &:nth-child(4n+2) {
+        clear:left;
+      }
+    }
   }
   time {
     color: #666;
@@ -39,14 +43,19 @@ pre {
   margin-bottom: 1.5em;
   white-space: pre-wrap;
   word-wrap: break-word;
-  code {
-    padding: .5em .5em .4em;
-    display: block;
-    line-height: 1.5;
+  font-size: 1.2em;
+  line-height: 1.2;
+  padding: .3em .5em;
+  .line-numbers {
+    margin-right: 10px;
   }
 }
 
 code {
   font-weight: normal;
   font-family: monaco, monospace
+}
+
+.gist-data table {
+  width: 100%;
 }
