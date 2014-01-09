@@ -11,6 +11,8 @@ gem 'simple_form'
 gem 'friendly_id', '~> 5.0.0'
 gem 'textacular'
 gem 'kramdown'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -54,6 +56,7 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

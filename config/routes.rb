@@ -1,4 +1,6 @@
 IbdCom::Application.routes.draw do
+  resources :portfolio_items, :path => 'portfolio'
+
   resources :posts, :path => '', except: :show
   get ':year/:month/:id' => 'posts#show', as: :post_date 
   get 'archive' => 'posts#archive', as: :post_archive

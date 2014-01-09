@@ -1,0 +1,4 @@
+#portfolio-form
+  #portfolio_item_title
+    @extend .large-6
+    @extend .medium-6

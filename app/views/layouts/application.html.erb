@@ -27,11 +27,9 @@
     </div>
 
     <%= yield %>
-    <div id="footer">
-      <div class="row">
 
-      </div>
-    </div>
+    <%= render 'layouts/footer' %>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

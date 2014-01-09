@@ -1,0 +1,12 @@
+<div id="portfolio-item">
+  <h2 id="title"><%= @portfolio_item.title %></h2>
+
+  <div id="body"><%= markdown_filter @portfolio_item.body %></div>
+
+  <%= image_tag @portfolio_item.featured_image_url(:med_portrait) %>
+
+  <div class="links">
+    <%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
+    <%= link_to 'Back', portfolio_items_path %>
+  </div>
+</div>
