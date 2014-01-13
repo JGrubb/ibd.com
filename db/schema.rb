@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109114021) do
+ActiveRecord::Schema.define(version: 20140110141927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 20140109114021) do
     t.string   "featured_image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "portfolio_items", ["slug"], name: "index_portfolio_items_on_slug", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"

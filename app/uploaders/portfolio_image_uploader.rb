@@ -35,6 +35,10 @@ class PortfolioImageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process resize_to_fill: [165, 165]
   end
+  
+  version :featured_square do
+    process resize_to_fit: [300, 300]
+  end
 
   version :med_portrait do
     process resize_to_fill: [350, 165]
