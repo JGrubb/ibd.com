@@ -1,9 +1,20 @@
 <div id="footer">
   <div class="row">
-    <aside id="bio" class="large-4 medium-4 column">
+    <section id="bio" class="large-4 medium-4 column">
     <h4>Hello.</h4>
     <p>You probably know me or have known me, but this is my blog and portfolio. My name is John or Johnny, depending on what time of day we typically talk. I'm a musician and web developer, which means that I make web sites work. This site is the home of my consultancy. <a href="mailto:therealjohnnygrubb@gmail.com">Please feel free to drop me a line</a>.</p>
-    </aside>
+    </section>
+    <section id="most-recent" class="large-4 medium-4 column">
+      <h4>Most recent posts</h4>
+      <% @footer_posts.each do |p| %>
+        <div>
+          <h6><%= link_to p.title, post_date_path_helper(p) %></h6>
+        </div>
+      <% end %>
+    </section>
+  </div>
+  <div class="row">
+    <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb</p>
   </div>
 </div>
 
