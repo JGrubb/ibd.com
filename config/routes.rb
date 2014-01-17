@@ -1,4 +1,5 @@
 IbdCom::Application.routes.draw do
+  get "home/welcome"
   resources :portfolio_items, :path => 'portfolio'
 
   resources :posts, :path => '', except: :show
