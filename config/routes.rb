@@ -1,16 +1,16 @@
 IbdCom::Application.routes.draw do
-  get "home/welcome"
   resources :portfolio_items, :path => 'portfolio'
 
-  resources :posts, :path => '', except: :show
+  resources :posts, :path => '', except: [:show, :index]
   get ':year/:month/:id' => 'posts#show', as: :post_date 
   get 'archive' => 'posts#archive', as: :post_archive
+  get 'posts/search' => 'posts#search', as: :post_search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'posts#index'
+  root 'home#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

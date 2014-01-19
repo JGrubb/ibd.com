@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.where(published: true).order('created_at DESC').limit(5)
   end
 
+  def search
+    @posts = Post.basic_search(params[:q])
+    render :index
+  end
+
   def archive
     @posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
   end
