@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def require_user
+    authenticate_user!
+  end
+
   def footer_stuff
     posts = Post.order('created_at DESC').limit(4)
     items = PortfolioItem.order('created_at DESC').limit(4)

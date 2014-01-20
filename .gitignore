@@ -20,3 +20,4 @@ config/database.yml
 *.swp
 *.un~
 public/uploads
+config/initializers/devise.rb

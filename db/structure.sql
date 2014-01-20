@@ -173,6 +173,7 @@ CREATE TABLE users (
     confirmation_token character varying(255),
     confirmed_at timestamp without time zone,
     confirmation_sent_at timestamp without time zone,
+    unconfirmed_email character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
