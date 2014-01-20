@@ -1,4 +1,5 @@
 IbdCom::Application.routes.draw do
+  devise_for :users
   resources :portfolio_items, :path => 'portfolio'
 
   resources :posts, :path => '', except: [:show, :index]
