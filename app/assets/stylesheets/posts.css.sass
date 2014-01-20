@@ -1,0 +1,47 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_post, .new_post
+  textarea
+    line-height: 1.5
+    font-family: monaco, monospace
+    &#post_body
+      min-height: 25em
+
+#post
+  color: #666
+  #bio p
+    font-size: 85%
+    line-height: 1.5
+  .body
+
+#archive
+  .post
+    margin-bottom: 2em
+    @media #{$large-up}
+      &:nth-child(4n+2)
+        clear: left
+time
+  color: #666
+  font-size: 90%
+  font-style: italic
+
+pre
+  background: #f9f9f9
+  border: 1px solid #e9e9e9
+  margin-bottom: 1.5em
+  white-space: pre-wrap
+  word-wrap: break-word
+  font-size: 1.2em
+  line-height: 1.2
+  padding: .3em .5em
+  .line-numbers
+    margin-right: 10px
+
+code
+  font-weight: normal
+  font-family: monaco, monospace
+
+.gist-data table
+  width: 100%

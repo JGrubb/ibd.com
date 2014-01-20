@@ -4,5 +4,8 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
+  def self.searchable_language
+    'english'
+  end
 
 end
