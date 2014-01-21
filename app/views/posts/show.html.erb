@@ -7,8 +7,9 @@
     <div class="body">
       <%= markdown_filter @post.body %>
     </div>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_post_path(@post) %>
+    <% end %>
   </div>
 
 </div>

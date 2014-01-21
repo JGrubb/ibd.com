@@ -1,10 +1,10 @@
 IbdCom::Application.routes.draw do
-  devise_for :users
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }
   resources :portfolio_items, :path => 'portfolio'
 
-  resources :posts, :path => '', except: [:show, :index]
+  resources :posts, except: [:show, :index]
   get ':year/:month/:id' => 'posts#show', as: :post_date 
-  get 'archive' => 'posts#archive', as: :post_archive
+  get 'archive' => 'posts#archive', as: :post_index
   get 'posts/search' => 'posts#search', as: :post_search
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -14,7 +14,13 @@
     </section>
   </div>
   <div class="row">
-    <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb</p>
+    <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb <br /> 
+    <% if user_signed_in? %>
+      <%= link_to "logout", destroy_user_session_path, data: { method: :delete } %>
+    <% else %>
+      <%= link_to "login", new_user_session_path %>
+    <% end %>
+    </p>
   </div>
 </div>
 
