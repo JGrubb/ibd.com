@@ -21,3 +21,5 @@ config/database.yml
 *.un~
 public/uploads
 config/initializers/devise.rb
+public/assets
+
