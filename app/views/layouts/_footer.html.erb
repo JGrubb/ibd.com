@@ -16,7 +16,9 @@
   <div class="row">
     <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb <br /> 
     <% if user_signed_in? %>
-      <%= link_to "logout", destroy_user_session_path, data: { method: :delete } %>
+      <%= link_to "logout", destroy_user_session_path, data: { method: :delete } %> | 
+      <%= link_to "new post", new_post_path %> | 
+      <%= link_to "new portfolio", new_portfolio_item_path %>
     <% else %>
       <%= link_to "login", new_user_session_path %>
     <% end %>
