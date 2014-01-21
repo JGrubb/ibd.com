@@ -1,5 +1,6 @@
 class PortfolioItemsController < ApplicationController
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
 
   # GET /portfolio_items
   # GET /portfolio_items.json

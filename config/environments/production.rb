@@ -24,10 +24,10 @@ IbdCom::Application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -71,6 +71,7 @@ IbdCom::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+  config.action_mailer.default_url_options = { :host => 'ignoredbydinosaurs.com' }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
