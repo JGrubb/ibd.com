@@ -5,8 +5,8 @@
     @extend .column
   h3,
   .portfolio_item_body,
-  .portfolio_item_featured_image,
   .form-actions,
+  #uploads,
   .links
     @extend .large-12
     @extend .column
@@ -18,7 +18,18 @@
   #title
     @extend .large-12
     @extend .column
-  #body
-    @extend .large-12
+  #body, #uploads
+    @extend .large-8
     @extend .medium-12
     @extend .column
+  .image
+    @extend .large-4
+    @extend .medium-6
+    @extend .column
+    padding: .3em
+    border: 1px solid #ddd
+    border-radius: 2px
+    margin-bottom: 1em
+    transition: all .2s
+    &:hover
+      background: #e3e3e3

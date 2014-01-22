@@ -3,10 +3,12 @@
 
   <% @portfolio_items.each do |item| %>
     <div class="large-4 medium-6 column">
-      <div><%= image_tag item.featured_image_url(:featured_square) %></div>
-      <caption><h5><%= link_to item.title, item %><h5></caption>
+      <div><%= link_to image_tag(item.featured_image_url(:featured_square)), item %></div>
+      <caption><h5><%= link_to item.title, item %></h5></caption>
     </div>
   <% end %>
 
+  <% if user_signed_in? %>
   <div class="large-12 column"><%= link_to 'New Portfolio item', new_portfolio_item_path %></div>
+  <% end %>
 </div>

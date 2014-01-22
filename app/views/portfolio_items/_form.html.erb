@@ -1,10 +1,24 @@
-<%= simple_form_for(@portfolio_item) do |f| %>
+<%= simple_form_for(@portfolio_item, multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :body %>
-    <%= f.input :featured_image %>
+    <div class="large-12 column">
+      <%= image_tag f.object.featured_image_url(:thumb) %>
+      <%= f.input :featured_image %>
+    </div>
+    <div id="uploads">
+      <h3>#show images</h3>
+      <%= f.simple_fields_for :images do |nf| %>
+        <div class="large-3 medium-4 column">
+          <div class="row">
+            <div class="large-4 column"><%= image_tag nf.object.image_url(:thumb) %></div>
+            <div class="large-8 column"><%= nf.input :image, multiple: true %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="form-actions">
