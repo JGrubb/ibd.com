@@ -32,20 +32,9 @@ class PortfolioImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process resize_to_fill: [165, 165]
-  end
   
   version :featured_square do
-    process resize_to_fit: [300, 300]
-  end
-
-  version :med_portrait do
-    process resize_to_fill: [350, 165]
-  end
-
-  version :full do
-    process resize_to_fit: [800, 800]
+    process resize_to_fill: [300, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
