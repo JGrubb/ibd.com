@@ -5,13 +5,15 @@ class PortfolioItemsController < ApplicationController
   # GET /portfolio_items
   # GET /portfolio_items.json
   def index
-    @portfolio_items = PortfolioItem.all
+    @portfolio_items = PortfolioItem.order('created_at asc')
+    @title = "Portfolio"
   end
 
   # GET /portfolio_items/1
   # GET /portfolio_items/1.json
   def show
     @images = @portfolio_item.images.order('created_at asc')
+    @title = @portfolio_item.title
     @summary = @portfolio_item.summary
   end
 

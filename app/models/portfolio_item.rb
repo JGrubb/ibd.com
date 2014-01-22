@@ -3,7 +3,7 @@ class PortfolioItem < ActiveRecord::Base
   extend FriendlyId
 
   has_many :images, dependent: :delete_all
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, reject_if: lambda { |a| a[:image].blank? }
 
   friendly_id :title, use: :slugged
 end
