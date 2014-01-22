@@ -5,7 +5,7 @@ class PortfolioItemsController < ApplicationController
   # GET /portfolio_items
   # GET /portfolio_items.json
   def index
-    @portfolio_items = PortfolioItem.order('created_at asc')
+    @portfolio_items = PortfolioItem.order('created_at desc')
     @title = "Portfolio"
   end
 
