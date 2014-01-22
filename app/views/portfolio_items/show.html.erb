@@ -5,9 +5,16 @@
   <div id="body"><%= markdown_filter @portfolio_item.body %></div>
 
   <div id="images">
+    <ul class="clearing-thumbs" data-clearing>
     <% @images.each do |image| %>
-      <div class="image"><%= link_to image_tag(image.image_url(:medium_landscape)), image.image_url %></div>
+      <li class="th radius">
+        <%= link_to image_tag(
+                              image.image_url(:medium_landscape), 
+                              data: { caption: image.caption || '' }), 
+                    image.image_url %>
+      </li>
     <% end %>
+    </ul>
   </div>
 
   <% if user_signed_in? %>

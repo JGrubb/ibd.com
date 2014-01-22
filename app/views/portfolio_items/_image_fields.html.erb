@@ -8,5 +8,6 @@
       <%= link_to "delete", image_path(f.object.id), data: { method: :delete }, class: "micro radius alert button" %>
       </div>
     <% end %>
+    <%= f.input :caption, label: false %>
   </div>
 </div>

@@ -12,6 +12,7 @@ class PortfolioItemsController < ApplicationController
   # GET /portfolio_items/1.json
   def show
     @images = @portfolio_item.images.order('created_at asc')
+    @summary = @portfolio_item.summary
   end
 
   # GET /portfolio_items/new
