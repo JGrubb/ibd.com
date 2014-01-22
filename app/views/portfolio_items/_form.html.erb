@@ -12,18 +12,17 @@
     <div id="uploads">
       <h3>#show images</h3>
       <%= f.simple_fields_for :images do |nf| %>
-        <div class="large-4 medium-4 column">
-          <div class="row">
-            <div class="large-4 column"><%= image_tag nf.object.image_url(:thumb) %></div>
-            <div class="large-8 column"><%= nf.input :image, multiple: true %></div>
-            <% unless nf.object.id.blank? %>
-              <%= link_to "delete", image_path(nf.object.id), data: { method: :delete } %>
-            <% end %>
-          </div>
-        </div>
+        <%= render 'image_fields', :f => nf %>
       <% end %>
     </div>
   </div>
+  <div id="add-more">
+    <%= link_to_add_association "add image", f, :images,  data: {
+      'association-insertion-node' => '#uploads',
+      'association-insertion-method' => 'append'
+    }, class: "button tiny radius secondary"
+  %>
+</div>
 
   <div class="form-actions">
     <%= f.button :submit, class: "small radius" %>

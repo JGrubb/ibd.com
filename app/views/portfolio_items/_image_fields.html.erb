@@ -1,0 +1,12 @@
+<div class="large-3 medium-3 column">
+  <div class="row">
+    <% if f.object.id.blank? %>
+      <div class="large-12 column"><%= f.input :image, multiple: true %></div>
+    <% else %>
+      <div class="large-12 column">
+        <%= image_tag f.object.image_url(:thumb) %><br />
+      <%= link_to "delete", image_path(f.object.id), data: { method: :delete }, class: "micro radius alert button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

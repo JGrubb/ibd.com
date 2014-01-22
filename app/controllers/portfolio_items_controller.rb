@@ -23,7 +23,6 @@ class PortfolioItemsController < ApplicationController
   # GET /portfolio_items/1/edit
   def edit
     @already_there = @portfolio_item.images
-    @portfolio_item.images.build
   end
 
   # POST /portfolio_items
