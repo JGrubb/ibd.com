@@ -7,10 +7,12 @@
   .portfolio_item_body,
   .form-actions,
   #uploads,
+  .portfolio_item_summary,
   .links
     @extend .large-12
     @extend .column
-  #portfolio_item_body
+  #portfolio_item_body,
+  #portfolio_item_summary
     min-height: 20em
 
 #portfolio-item
@@ -22,10 +24,11 @@
     @extend .large-8
     @extend .medium-12
     @extend .column
-  .image
+  #images
     @extend .large-4
     @extend .medium-6
     @extend .column
+  .image
     padding: .3em
     border: 1px solid #ddd
     border-radius: 2px

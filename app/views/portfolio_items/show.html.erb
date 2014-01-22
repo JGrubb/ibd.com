@@ -4,9 +4,11 @@
 
   <div id="body"><%= markdown_filter @portfolio_item.body %></div>
 
-  <% @images.each do |image| %>
-    <div class="image"><%= link_to image_tag(image.image_url(:medium_landscape)), image.image_url %></div>
-  <% end %>
+  <div id="images">
+    <% @images.each do |image| %>
+      <div class="image"><%= link_to image_tag(image.image_url(:medium_landscape)), image.image_url %></div>
+    <% end %>
+  </div>
 
   <% if user_signed_in? %>
     <div class="links large-12 column">

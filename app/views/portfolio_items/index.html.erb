@@ -4,7 +4,8 @@
   <% @portfolio_items.each do |item| %>
     <div class="large-4 medium-6 column">
       <div><%= link_to image_tag(item.featured_image_url(:featured_square)), item %></div>
-      <caption><h5><%= link_to item.title, item %></h5></caption>
+      <div class="title text-center"><h4><%= link_to item.title, item %></h4></div>
+      <div class="summary"><%= markdown_filter item.summary %></div>
     </div>
   <% end %>
 

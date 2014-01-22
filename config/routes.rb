@@ -1,6 +1,9 @@
 IbdCom::Application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }
-  resources :portfolio_items, :path => 'portfolio'
+  resources :portfolio_items, :path => 'portfolio' do
+    resources :images, shallow: true
+  end
+    
 
   resources :posts, except: [:show, :index]
   get ':year/:month/:id' => 'posts#show', as: :post_date 

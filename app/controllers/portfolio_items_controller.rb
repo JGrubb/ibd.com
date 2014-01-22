@@ -11,19 +11,19 @@ class PortfolioItemsController < ApplicationController
   # GET /portfolio_items/1
   # GET /portfolio_items/1.json
   def show
-    @images = @portfolio_item.images
+    @images = @portfolio_item.images.order('created_at asc')
   end
 
   # GET /portfolio_items/new
   def new
     @portfolio_item = PortfolioItem.new
-    @images = @portfolio_item.images.build
+    4.times { @portfolio_item.images.build }
   end
 
   # GET /portfolio_items/1/edit
   def edit
     @already_there = @portfolio_item.images
-    @images = @portfolio_item.images.build
+    @portfolio_item.images.build
   end
 
   # POST /portfolio_items
@@ -74,6 +74,6 @@ class PortfolioItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_item_params
-      params.require(:portfolio_item).permit(:title, :body, :featured_image, images_attributes: [:id, :caption, :image])
+      params.require(:portfolio_item).permit(:title, :body, :summary, :featured_image, images_attributes: [:id, :caption, :image])
     end
 end
