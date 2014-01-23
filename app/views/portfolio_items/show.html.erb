@@ -1,9 +1,6 @@
 <div id="portfolio-item">
   <h2 id="title"><%= @portfolio_item.title %></h2>
 
-
-  <div id="body"><%= markdown_filter @portfolio_item.body %></div>
-
   <div id="images">
     <ul class="clearing-thumbs" data-clearing>
     <% @images.each do |image| %>
@@ -16,6 +13,13 @@
     <% end %>
     </ul>
   </div>
+
+  <div id="body"><%= markdown_filter @portfolio_item.body %></div>
+  <div id="sidebar">
+    <h3>Details</h3>
+    <%= markdown_filter @portfolio_item.sidebar if @portfolio_item.sidebar %>
+  </div>
+
 
   <% if user_signed_in? %>
     <div class="links large-12 column">

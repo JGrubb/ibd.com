@@ -121,7 +121,8 @@ CREATE TABLE portfolio_items (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     slug character varying(255),
-    summary text
+    summary text,
+    sidebar text
 );
 
 
@@ -428,3 +429,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140120124618');
 INSERT INTO schema_migrations (version) VALUES ('20140121202150');
 
 INSERT INTO schema_migrations (version) VALUES ('20140122133604');
+
+INSERT INTO schema_migrations (version) VALUES ('20140123120904');

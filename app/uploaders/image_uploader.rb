@@ -37,7 +37,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium_landscape do
-    process resize_to_fit: [360, 240]
+    process resize_to_fill: [480, 300]
   end
 
   version :full do

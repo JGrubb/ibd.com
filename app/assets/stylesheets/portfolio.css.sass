@@ -1,6 +1,3 @@
-#portfolio-index
-  .item:nth-child(3n+1)
-    clear:left
 
 #portfolio-form
   .portfolio_item_title
@@ -11,14 +8,19 @@
   .portfolio_item_body,
   .form-actions,
   #uploads,
-  .portfolio_item_summary,
   #add-more,
   .links
     @extend .large-12
     @extend .column
-  #portfolio_item_body,
-  #portfolio_item_summary
+  .portfolio_item_sidebar,
+  .portfolio_item_summary
+    @extend .large-6
+    @extend .column
+  #portfolio_item_body
     min-height: 20em
+  #portfolio_item_summary,
+  #portfolio_item_sidebar
+    min-height: 10em
   .form-actions
     margin-top: 1em
   #add-more
@@ -31,11 +33,20 @@
     @extend .column
   #body, #uploads
     @extend .large-8
-    @extend .medium-12
+    @extend .medium-8
     @extend .column
-  #images
+  #sidebar
     @extend .large-4
-    @extend .medium-6
+    @extend .medium-4
     @extend .column
+    li
+      color: #555
+      margin-bottom: .5em
+      font-size: 85%
   .th
     margin-bottom: 1em
+    background: #eee
+
+#portfolio-index
+  .item:nth-child(3n+2)
+    clear: left
