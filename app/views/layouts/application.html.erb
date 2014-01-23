@@ -16,16 +16,26 @@
 
   <body>
     <div id="header">
-      <div class="row">
-        <h1 class="large-8 column"><%= link_to "Ignored By Dinosaurs", root_path %></h1>
-        <div class="large-4 column">
-          <div id="search" class="row">
-          <%= form_tag '/posts/search', method: :get do %>
-            <div class="large-8 column"><%= text_field_tag :q %></div>
-            <div class="large-4 column text-center"><%= submit_tag :search, class: "button tiny radius" %></div>
-          <% end %>
-          </div>
-        </div>
+      <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar>
+        <section class="top-bar-section">
+        <ul class="right">
+          <li><%= link_to "Blog", post_index_path %></li>
+          <li><%= link_to "Portfolio", portfolio_items_path %></li>
+          <li class="has-form">
+            <div id="search" class="row collapse">
+              <%= form_tag '/posts/search', method: :get do %>
+                <div class="large-8 column"><%= text_field_tag :q %></div>
+                <div class="large-4 column text-center"><%= submit_tag :search, class: "secondary button tiny radius" %></div>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+        </section>
+        </nav>
+      </div>
+      <div class="row" id="brand">
+        <h1 class="large-12 column"><%= link_to "Ignored By Dinosaurs", root_path %></h1>
       </div>
     </div>
     <div id="messages" class="row">
