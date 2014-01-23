@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def footer_stuff
-    posts = Post.order('created_at DESC').limit(4)
-    items = PortfolioItem.order('created_at DESC').limit(2)
-    @all = (posts + items).sort { | a, b | b.created_at <=> a.created_at }.slice(0, 4)
+    @all = Post.order('created_at DESC').limit(4)
   end
 
 end
