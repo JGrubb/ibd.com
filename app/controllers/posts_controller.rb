@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @title = @post.title
+    @month = @post.created_at.month
+    @year = @post.created_at.year
     @summary = @post.summary.blank? ? @post.body : @post.summary
   end
 
