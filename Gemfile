@@ -13,6 +13,7 @@ gem 'kramdown'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cocoon'
+gem 'sitemap_generator'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
