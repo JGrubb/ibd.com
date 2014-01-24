@@ -25,6 +25,8 @@ class PostsController < ApplicationController
     @month = @post.created_at.month
     @year = @post.created_at.year
     @summary = @post.summary.blank? ? @post.body : @post.summary
+    @previous = Post.where('created_at < ?', @post.created_at).order(:created_at).reverse_order.first
+    @next = Post.where('created_at > ?', @post.created_at).order(:created_at).first
   end
 
   # GET /posts/new
