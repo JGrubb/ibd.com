@@ -478,7 +478,7 @@ $clearing-img-bg: #222;
 
 // Off-canvas
 
-// $tabbar-bg: #333;
+$tabbar-bg: darken($dark_blue, 10%);
 // $tabbar-height: rem-calc(45);
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #FFF;
@@ -496,7 +496,7 @@ $clearing-img-bg: #222;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: 250px;
-// $off-canvas-bg: #333;
+$off-canvas-bg: $tabbar-bg;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
@@ -508,7 +508,7 @@ $clearing-img-bg: #222;
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
 // $off-canvas-link-padding: rem-calc(10, 15);
-// $off-canvas-link-color: rgba(#FFF, 0.7);
+$off-canvas-link-color: #FFF;
 // $off-canvas-link-border-bottom: 1px solid darken($off-canvas-bg, 5%);
 
 // Off Canvas Menu Icon Variables
@@ -533,7 +533,7 @@ $clearing-img-bg: #222;
 // $off-canvas-overlay-background-hover: rgba(#FFF, 0.05);
 
 // Transition Variabls
-// $menu-slide: "transform 500ms ease";
+$menu-slide: "transform 250ms ease";
 
 // Orbit
 
@@ -547,7 +547,6 @@ $clearing-img-bg: #222;
 // $orbit-caption-position: "bottom"; // Supported values: "bottom", "under"
 // $orbit-caption-padding: rem-calc(10,14);
 // $orbit-caption-height: auto;
-
 // We use these to control the left/right nav styles
 // $orbit-nav-bg: none;
 // $orbit-nav-bg-hover: rgba(0,0,0,0.3);
@@ -927,7 +926,7 @@ $clearing-img-bg: #222;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #133762;
+$topbar-bg-color: $dark_blue;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin

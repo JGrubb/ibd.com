@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   end
 
   def year
-    "#{self.created_at.year}"
+    self.created_at.year
   end
 
 end
