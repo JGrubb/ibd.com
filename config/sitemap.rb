@@ -21,6 +21,8 @@ SitemapGenerator::Sitemap.create do
   #
   # Add all articles:
   #
+  add post_index_path, priority: 0.7, changefreq: 'daily'
+  
   Post.find_each do |post|
     add post_date_path(post.year, post.month, post.slug), :lastmod => post.updated_at
   end
