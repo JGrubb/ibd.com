@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
   before_action :require_user, only: [:new, :create, :edit, :update, :delete]
 
   # GET /posts
@@ -21,12 +21,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    posts = Post.order(:created_at).reverse_order
+    @post = posts.select { |p| p.slug == params[:id]}.first
     @title = @post.title
     @month = @post.created_at.month
     @year = @post.created_at.year
     @summary = @post.summary.blank? ? @post.body : @post.summary
-    @previous = Post.where('created_at < ?', @post.created_at).order(:created_at).reverse_order.first
-    @next = Post.where('created_at > ?', @post.created_at).order(:created_at).first
+    @previous = posts.select { |p| p.created_at < @post.created_at }.first
+    @next = posts.select { |p| p.created_at > @post.created_at }.reverse.first
   end
 
   # GET /posts/new
