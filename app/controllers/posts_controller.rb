@@ -23,10 +23,10 @@ class PostsController < ApplicationController
   def show
     posts = Post.order(:created_at).reverse_order
     @post = posts.select { |p| p.slug == params[:id]}.first
+
     @title = @post.title
-    @month = @post.created_at.month
-    @year = @post.created_at.year
     @summary = @post.summary.blank? ? @post.body : @post.summary
+
     @previous = posts.select { |p| p.created_at < @post.created_at }.first
     @next = posts.select { |p| p.created_at > @post.created_at }.reverse.first
   end

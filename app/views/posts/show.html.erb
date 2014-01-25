@@ -8,14 +8,12 @@
     <div class="body">
       <%= markdown_filter @post.body %>
     </div>
-    <div class="links">
-      <%= link_to("Previous post", post_date_path_helper(@previous), class: "tiny success radius button") unless @previous.nil?%>
-      <%= link_to("Next post", post_date_path_helper(@next), class: "tiny success radius button right") unless @next.nil? %>
-    </div>
+    <%= render 'links' %>
     <% if user_signed_in? %>
       <%= link_to 'Edit', edit_post_path(@post) %>
     <% end %>
     <div id="disqus_thread"></div>
+    <%= render 'links' %>
   </div>
 
 </div>

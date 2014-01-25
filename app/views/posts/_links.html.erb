@@ -1,0 +1,11 @@
+<div class="links row">
+  <div class="large-6 medium-6 small-6 column">
+    <%= link_to("Previous post", post_date_path_helper(@previous), class: "tiny success radius button") unless @previous.nil?%><br />
+    <%= @previous.title unless @previous.nil? %>
+  </div>
+
+  <div class="large-6 medium-6 small-6 column text-right">
+    <%= link_to("Next post", post_date_path_helper(@next), class: "tiny success radius button") unless @next.nil? %><br />
+    <%= @next.title unless @next.nil? %>
+  </div>
+</div>
