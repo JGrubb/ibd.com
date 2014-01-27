@@ -15,13 +15,13 @@ class PostsController < ApplicationController
   end
 
   def archive
-    @posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
+    @posts = Post.pub_and_sorted.reverse
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
+    posts = Post.published.reverse_sorted
     @post = posts.select { |p| p.slug == params[:id]}.first
 
     @title = @post.title
