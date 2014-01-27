@@ -50,6 +50,9 @@ group :development, :test do
   gem "shoulda-matchers", "2.1.0"
   gem "capybara", "2.1.0"
   gem "launchy", "2.2.0"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Use ActiveModel has_secure_password
