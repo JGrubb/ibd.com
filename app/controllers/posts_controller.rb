@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
-  before_action :require_user, only: [:new, :create, :edit, :update, :delete]
+  before_action :require_user, only: [:new, :create, :edit, :update, :delete, :unpublished]
+  before_action :verify_published, only: :show
 
   # GET /posts
   # GET /posts.json
@@ -18,11 +19,15 @@ class PostsController < ApplicationController
     @posts = Post.pub_and_sorted.reverse
   end
 
+  def unpublished
+    @posts = Post.where(published: false)
+    render :index
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
     posts = Post.published.reverse_sorted
-    @post = posts.select { |p| p.slug == params[:id]}.first
 
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
@@ -84,6 +89,12 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.friendly.find(params[:id])
+    end
+
+    def verify_published
+      unless @post.published? || require_user
+        redirect_to :posts_index_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -9,6 +9,7 @@ IbdCom::Application.routes.draw do
   get ':year/:month/:id' => 'posts#show', as: :post_date 
   get 'archive' => 'posts#archive', as: :post_index
   get 'posts/search' => 'posts#search', as: :post_search
+  get 'posts/unpublished' => 'posts#unpublished'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
