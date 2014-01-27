@@ -12,7 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def footer_stuff
-    @all = Post.order('created_at DESC').limit(4)
+    posts = Post.all
+    @all = []
+    4.times { @all << posts[rand(Post.all.count)] }
+    @all
   end
 
 end

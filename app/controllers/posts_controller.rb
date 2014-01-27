@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    posts = Post.order(:created_at).reverse_order
+    posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
     @post = posts.select { |p| p.slug == params[:id]}.first
 
     @title = @post.title
