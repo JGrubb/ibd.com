@@ -18,7 +18,7 @@ IbdCom::Application.configure do
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   config.action_dispatch.rack_cache = {
-    :metastore    => 'file:tmp/cache/rack/meta',
+    :metastore    => 'heap:/',
     :entitystore  => 'file:tmp/cache/rack/body',
     :allow_reload => false }
 
