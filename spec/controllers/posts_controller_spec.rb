@@ -41,7 +41,7 @@ describe PostsController do
   describe "GET show" do
     it "assigns the requested post as @post" do
       post = Post.create! valid_attributes
-      get :show, {:id => post.id}, valid_session
+      get :show, {year: post.year, month: post.month, :id => post.id}, valid_session
       assigns(:post).should eq(post)
     end
   end

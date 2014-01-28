@@ -4,11 +4,11 @@ describe PostsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/").should route_to("posts#index")
+      get("/").should route_to("home#welcome")
     end
 
     it "routes to #new" do
-      get("/new").should route_to("posts#new")
+      get("/posts/new").should route_to("posts#new")
     end
 
     it "routes to #show" do

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe ImagesController do
 
-  describe "GET 'delete'" do
+  describe "DELETE 'delete'" do
     it "returns http success" do
-      get 'delete'
+      delete 'images/:id'
       response.should be_success
     end
   end
