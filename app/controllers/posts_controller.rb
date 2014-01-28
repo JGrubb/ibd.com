@@ -16,7 +16,12 @@ class PostsController < ApplicationController
   end
 
   def archive
-    @posts = Post.pub_and_sorted.reverse
+    posts = Post.pub_and_sorted.reverse
+    years = (2009..Time.now.year).to_a.reverse
+    @posts_by_year = {}
+    years.each do |year|
+      @posts_by_year[year.to_s] = posts.select { |a| a.created_at.year == year }
+    end
   end
 
   def unpublished
