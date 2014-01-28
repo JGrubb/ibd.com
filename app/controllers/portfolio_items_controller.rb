@@ -15,6 +15,7 @@ class PortfolioItemsController < ApplicationController
     @images = @portfolio_item.images.order('created_at asc')
     @title = @portfolio_item.title
     @summary = @portfolio_item.summary
+    expires_in 1.day, public: true unless signed_in?
   end
 
   # GET /portfolio_items/new
