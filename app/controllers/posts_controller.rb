@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
   before_action :require_user, only: [:new, :create, :edit, :update, :delete, :unpublished]
   before_action :verify_published, only: :show
 

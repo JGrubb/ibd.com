@@ -4,7 +4,6 @@ class Post < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
   scope :sorted,    -> { order(:created_at) }
-  scope :reverse_sorted, -> { sorted.reverse_order }
 
   validates :title, presence: true
 
