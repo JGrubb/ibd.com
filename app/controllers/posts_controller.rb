@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    posts = Post.published.reverse_sorted
+    posts = Post.published.sorted.reverse_order
 
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary

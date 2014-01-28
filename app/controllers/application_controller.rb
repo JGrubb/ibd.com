@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def footer_stuff
-    posts = Post.published.reverse_sorted.to_ary
+    posts = Post.published.sorted.reverse_order.to_ary
     @first = posts[0..3]
     @all = []
     4.times { @all << posts[rand(posts.count)] }
