@@ -125,6 +125,8 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-test (0.6.2)
@@ -188,6 +190,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.8)
     subexec (0.2.3)
     terminal-table (1.4.5)
     textacular (3.1.0)
@@ -237,6 +240,7 @@ DEPENDENCIES
   meta_request
   mini_magick
   pg
+  rack-cache
   rails (= 4.0.2)
   rb-fsevent (~> 0.9.1)
   rspec-rails (= 2.13.1)
@@ -245,6 +249,7 @@ DEPENDENCIES
   shoulda-matchers (= 2.1.0)
   simple_form
   sitemap_generator
+  sqlite3
   textacular
   thin
   turbolinks

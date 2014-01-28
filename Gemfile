@@ -55,12 +55,17 @@ group :development, :test do
   gem 'meta_request'
 end
 
+group :test do
+  gem 'sqlite3'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 gem 'thin'
+
+gem 'rack-cache'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
