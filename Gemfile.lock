@@ -124,6 +124,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -239,6 +241,7 @@ DEPENDENCIES
   meta_request
   mini_magick
   pg
+  pry-rails
   rack-cache
   rails (= 4.0.2)
   rb-fsevent (~> 0.9.1)
