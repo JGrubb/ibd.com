@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def feed
     @posts = Post.pub_and_sorted.reverse.first(20)
+    expires_in 2.hours, public: true
   end
 
   def search
