@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def footer_stuff
     count = Post.count
-    @first = Post.all.last(4).reverse
+    @first = Post.order(:created_at).last(4).reverse
     all = []
     4.times { all << rand(count) }
     @all = Post.find(all)
