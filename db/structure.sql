@@ -3,6 +3,7 @@
 --
 
 SET statement_timeout = 0;
+SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -20,6 +21,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_trgm; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
 
 
 SET search_path = public, pg_catalog;
@@ -69,9 +84,10 @@ CREATE TABLE images (
     id integer NOT NULL,
     caption character varying(255),
     image character varying(255),
-    portfolio_item_id integer,
+    imageable_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    imageable_type character varying(255) DEFAULT 'PortfolioItem'::character varying
 );
 
 
@@ -322,10 +338,17 @@ CREATE INDEX index_friendly_id_slugs_on_sluggable_type ON friendly_id_slugs USIN
 
 
 --
--- Name: index_images_on_portfolio_item_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_images_on_imageable_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_images_on_portfolio_item_id ON images USING btree (portfolio_item_id);
+CREATE INDEX index_images_on_imageable_id ON images USING btree (imageable_id);
+
+
+--
+-- Name: index_images_on_imageable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_images_on_imageable_type ON images USING btree (imageable_type);
 
 
 --
@@ -416,3 +439,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140121202150');
 INSERT INTO schema_migrations (version) VALUES ('20140122133604');
 
 INSERT INTO schema_migrations (version) VALUES ('20140123120904');
+
+INSERT INTO schema_migrations (version) VALUES ('20140129135031');

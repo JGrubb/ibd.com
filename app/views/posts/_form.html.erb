@@ -6,6 +6,18 @@
       <%= f.input :title, wrapper_html: { class: "large-6 medium-6 column" } %>
       <%= f.input :body, wrapper_html: { class: "large-12 medium-12 column" } %>
       <%= f.input :summary, wrapper_html: { class: "large-12 medium-12 column" } %>
+      <div id="uploads">
+        <%= f.simple_fields_for :images do |nf| %>
+          <%= render 'image_fields', :f => nf %>
+        <% end %>
+      </div>
+    </div>
+    <div id="add-more">
+      <%= link_to_add_association "add image", f, :images,  data: {
+        'association-insertion-node' => '#uploads',
+        'association-insertion-method' => 'append'
+        }, class: "button tiny radius secondary"
+      %>
     </div>
 
     <div class="form-actions">

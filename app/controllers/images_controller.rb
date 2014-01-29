@@ -1,8 +1,8 @@
 class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
-    @portfolio_item = PortfolioItem.find(@image.portfolio_item_id)
+    @item = @image.imageable_type.constantize.find(@image.imageable_id)
     @image.destroy
-    redirect_to edit_portfolio_item_url(@portfolio_item)
+    redirect_to edit_polymorphic_path(@item)
   end
 end

@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
+  has_many :images, as: :imageable, dependent: :delete_all
+  accepts_nested_attributes_for :images, reject_if: lambda { |a| a[:image].blank? }
 
   scope :published, -> { where(published: true) }
   scope :sorted,    -> { order(:created_at) }

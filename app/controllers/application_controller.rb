@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     count = Post.count
     @first = Post.order(:created_at).last(4).reverse
     all = []
-    4.times { all << rand(count) }
+    4.times { all << (rand(count) + 1) }
     @all = Post.find(all)
   end
 
