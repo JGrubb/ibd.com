@@ -5,7 +5,7 @@ atom_feed do |feed|
   @posts.each do |post|
     feed.entry post, published: post.created_at do |entry|
       entry.title post.title
-      entry.content post.body
+      entry.content markdown_filter(post.body), type: "html"
       entry.author "J Grubb"
     end
   end
