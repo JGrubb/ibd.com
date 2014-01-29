@@ -5,9 +5,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index
-    #@posts = Post.all.to_ary.sort { |a, b| b.created_at <=> a.created_at }
-    @posts = Post.where(published: true).order('created_at DESC').limit(5)
+  def feed
+    @posts = Post.pub_and_sorted.reverse.first(20)
+    expires_in 2.hours, public: true
   end
 
   def search
