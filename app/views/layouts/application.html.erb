@@ -5,6 +5,7 @@
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="<%= sanitize truncate(summary, length: 380, escape: false), tags: %w() %>" />
+    <%= auto_discovery_link_tag(:atom, feed_url, { title: "Ignored by Dinosaurs (the feed)"}) %>
 
     <title><%= title || "Ignored By Dinosaurs" %></title>
 
