@@ -4,5 +4,6 @@
   <%= render 'form' %>
 
   <%= link_to 'Show', post_date_path_helper(@post) %> |
+  <%= link_to 'Delete', post_path(@post), data: { method: :delete, confirm: "Truly?" } %> | 
   <%= link_to 'Back', posts_path %>
 </div>
