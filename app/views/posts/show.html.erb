@@ -1,22 +1,24 @@
-<div id="post" class="row">
+<% cache [ "post", @post ] do %>
+  <div id="post" class="row">
 
-  <div class="large-8 medium-8 large-centered medium-centered column">
-    <div>
-      <h2 class="title"><%= @post.title %></h2>
-      <time><%= @post.created_at.strftime('%A %B %d, %Y - %I:%M%p') %></time>
+    <div class="large-8 medium-8 large-centered medium-centered column">
+      <div>
+        <h2 class="title"><%= @post.title %></h2>
+        <time><%= @post.created_at.strftime('%A %B %d, %Y - %I:%M%p') %></time>
+      </div>
+      <div class="body">
+        <%= markdown_filter @post.body %>
+      </div>
+      <%= render 'links' %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+      <% end %>
+      <div id="disqus_thread"></div>
+      <%= render 'links' %>
     </div>
-    <div class="body">
-      <%= markdown_filter @post.body %>
-    </div>
-    <%= render 'links' %>
-    <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_post_path(@post) %>
-    <% end %>
-    <div id="disqus_thread"></div>
-    <%= render 'links' %>
+
   </div>
-
-</div>
+<% end %>
 
 <% content_for :scripts do %>
   <script type="text/javascript">

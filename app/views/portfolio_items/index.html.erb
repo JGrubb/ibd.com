@@ -1,15 +1,17 @@
 <div id="portfolio-index" class="row">
   <h2 class="large-12 column">Portfolio</h2>
 
+<% cache [ "portfolio", Digest::MD5.hexdigest(@portfolio_items.to_s)] do %>
   <% @portfolio_items.each do |item| %>
-    <div class="large-4 medium-6 column item">
-      <div><%= link_to image_tag(item.featured_image_url(:featured_square), class: "th"), item %></div>
-      <div class="title text-center"><h4><%= link_to item.title, item %></h4></div>
-      <div class="summary"><%= markdown_filter item.summary %></div>
-    </div>
+      <div class="large-4 medium-6 column item">
+        <div><%= link_to image_tag(item.featured_image_url(:featured_square), class: "th"), item %></div>
+        <div class="title text-center"><h4><%= link_to item.title, item %></h4></div>
+        <div class="summary"><%= markdown_filter item.summary %></div>
+      </div>
   <% end %>
 
   <% if user_signed_in? %>
   <div class="large-12 column"><%= link_to 'New Portfolio item', new_portfolio_item_path %></div>
   <% end %>
+<% end %>
 </div>
