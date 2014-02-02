@@ -18,8 +18,8 @@ IbdCom::Application.configure do
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   config.action_dispatch.rack_cache = {
-    :metastore    => 'heap:/',
-    :entitystore  => 'file:tmp/cache/rack/body',
+    :metastore   => 'memcached://localhost:11211/meta',
+    :entitystore => 'memcached://localhost:11211/body',
     :allow_reload => false }
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
@@ -55,7 +55,7 @@ IbdCom::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
