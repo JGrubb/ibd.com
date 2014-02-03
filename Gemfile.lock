@@ -70,6 +70,11 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
@@ -232,6 +237,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   devise
+  factory_girl_rails
   foundation-rails
   friendly_id (~> 5.0.0)
   guard (= 1.6.2)

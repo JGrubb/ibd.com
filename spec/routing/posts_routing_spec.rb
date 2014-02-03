@@ -12,23 +12,23 @@ describe PostsController do
     end
 
     it "routes to #show" do
-      get("/1").should route_to("posts#show", :id => "1")
+      get("/2014/01/the-test").should route_to("posts#show", :id => "the-test", :year => "2014", :month => "01")
     end
 
     it "routes to #edit" do
-      get("/1/edit").should route_to("posts#edit", :id => "1")
+      get("/posts/the-test/edit").should route_to("posts#edit", :id => "the-test")
     end
 
     it "routes to #create" do
-      post("/").should route_to("posts#create")
+      post("/posts").should route_to("posts#create")
     end
 
     it "routes to #update" do
-      put("/1").should route_to("posts#update", :id => "1")
+      put("/posts/the-test").should route_to("posts#update", :id => "the-test")
     end
 
     it "routes to #destroy" do
-      delete("/1").should route_to("posts#destroy", :id => "1")
+      delete("/posts/the-test").should route_to("posts#destroy", :id => "the-test")
     end
 
   end

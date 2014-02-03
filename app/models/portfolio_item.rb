@@ -5,5 +5,7 @@ class PortfolioItem < ActiveRecord::Base
   has_many :images, as: :imageable, dependent: :delete_all
   accepts_nested_attributes_for :images, reject_if: lambda { |a| a[:image].blank? }
 
+  validates :title, presence: true
+
   friendly_id :title, use: :slugged
 end
