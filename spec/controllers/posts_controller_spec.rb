@@ -31,6 +31,20 @@ describe PostsController do
   let(:valid_session) { { } }
 
   describe "GET archive" do
+    it "assigns all the posts as @posts_by_year" do
+      post = create :post
+      get :archive
+      post_blob = {
+        "2014" => [post],
+        "2013" => [],
+        "2012" => [],
+        "2011" => [],
+        "2010" => [],
+        "2009" => []
+      }
+      assigns(:posts_by_year).should eq post_blob
+    end
+
     it "renders the archive template" do
       get :archive
       response.should render_template :archive
