@@ -1,4 +1,4 @@
-<% cache [ "post", @post ] do %>
+<% cache_if current_user.nil?, [ "post", @post ] do %>
   <div id="post" class="row">
 
     <div class="large-8 medium-8 large-centered medium-centered column">
