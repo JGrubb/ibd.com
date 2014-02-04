@@ -22,12 +22,12 @@ class Post < ActiveRecord::Base
     if "#{month}".size == 1
       "0#{month}"
     else
-      month
+      month.to_s
     end
   end
 
   def year
-    self.created_at.year
+    self.created_at.year.to_s
   end
 
 end
