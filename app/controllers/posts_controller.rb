@@ -6,17 +6,17 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def feed
-    @posts = Post.pub_and_sorted.reverse.first(20)
+    @posts = Post.published.sorted.reverse_order.first(20)
     expires_in 2.hours, public: true
   end
 
   def search
-    @posts = Post.basic_search(params[:q])
+    @posts = Post.basic_search(params[:q]).published
     render :index
   end
 
   def archive
-    posts = Post.pub_and_sorted.reverse
+    posts = Post.published.sorted.reverse_order
     years = (2009..Time.now.year).to_a.reverse
     @posts_by_year = {}
     years.each do |year|

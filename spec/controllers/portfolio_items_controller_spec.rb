@@ -23,7 +23,6 @@ describe PortfolioItemsController do
   # This should return the minimal set of attributes required to create a valid
   # PortfolioItem. As you add validations to PortfolioItem, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: "The Title", featured_image: "the featured image url" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -46,18 +45,20 @@ describe PortfolioItemsController do
     end
   end
 
-  describe "GET new as unauthorized" do
-    it "keeps the demons at bay" do
-      get :new, {} 
-      response.should redirect_to(new_user_session_path)
-    end
-  end
-
   describe "GET new" do
-    login_user
-    it "assigns a new portfolio_item as @portfolio_item" do
-      get :new, {} 
-      assigns(:portfolio_item).should be_a_new(PortfolioItem)
+    context "logged in user" do
+      login_user
+      it "assigns a new portfolio_item as @portfolio_item" do
+        get :new, {} 
+        assigns(:portfolio_item).should be_a_new(PortfolioItem)
+      end
+    end
+
+    context "non logged in user" do
+      it "keeps the demons at bay" do
+        get :new, {} 
+        response.should redirect_to(new_user_session_path)
+      end
     end
   end
 
@@ -70,40 +71,56 @@ describe PortfolioItemsController do
   end
 
   describe "POST create" do
-    login_user
 
-    describe "with valid params" do
-      it "creates a new PortfolioItem" do
-        expect {
-          post :create, {:portfolio_item => valid_attributes} 
-        }.to change(PortfolioItem, :count).by(1)
+    context "logged in user" do
+      login_user
+
+      describe "with valid params" do
+        it "creates a new PortfolioItem" do
+          expect {
+            post :create, {:portfolio_item => FactoryGirl.attributes_for(:portfolio_item)} 
+          }.to change(PortfolioItem, :count).by(1)
+        end
+
+        it "assigns a newly created portfolio_item as @portfolio_item" do
+          post :create, {:portfolio_item => FactoryGirl.attributes_for(:portfolio_item)} 
+          assigns(:portfolio_item).should be_a(PortfolioItem)
+          assigns(:portfolio_item).should be_persisted
+        end
+
+        it "redirects to the created portfolio_item" do
+          post :create, {:portfolio_item => FactoryGirl.attributes_for(:portfolio_item)} 
+          response.should redirect_to(PortfolioItem.last)
+        end
       end
 
-      it "assigns a newly created portfolio_item as @portfolio_item" do
-        post :create, {:portfolio_item => valid_attributes} 
-        assigns(:portfolio_item).should be_a(PortfolioItem)
-        assigns(:portfolio_item).should be_persisted
-      end
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved portfolio_item as @portfolio_item" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          PortfolioItem.any_instance.stub(:save).and_return(false)
+          post :create, {:portfolio_item => { "title" => "invalid value" }} 
+          assigns(:portfolio_item).should be_a_new(PortfolioItem)
+        end
 
-      it "redirects to the created portfolio_item" do
-        post :create, {:portfolio_item => valid_attributes} 
-        response.should redirect_to(PortfolioItem.last)
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          PortfolioItem.any_instance.stub(:save).and_return(false)
+          post :create, {:portfolio_item => { "title" => "invalid value" }} 
+          expect(response).to render_template("new")
+        end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved portfolio_item as @portfolio_item" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        PortfolioItem.any_instance.stub(:save).and_return(false)
-        post :create, {:portfolio_item => { "title" => "invalid value" }} 
-        assigns(:portfolio_item).should be_a_new(PortfolioItem)
+    context "non logged in user" do
+      
+      it "prevents unauthorized posting of new shit" do
+        post :create, {:portfolio_item => FactoryGirl.attributes_for(:portfolio_item)} 
+        expect(assigns(:portfolio_item)).to be_nil
       end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        PortfolioItem.any_instance.stub(:save).and_return(false)
-        post :create, {:portfolio_item => { "title" => "invalid value" }} 
-        response.should render_template("new")
+      it "redirects to the user login page" do
+        post :create, {:portfolio_item => FactoryGirl.attributes_for(:portfolio_item)} 
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -124,13 +141,13 @@ describe PortfolioItemsController do
 
       it "assigns the requested portfolio_item as @portfolio_item" do
         portfolio_item = create :portfolio_item
-        put :update, {:id => portfolio_item.to_param, :portfolio_item => valid_attributes} 
+        put :update, {:id => portfolio_item.to_param, portfolio_item: FactoryGirl.attributes_for(:portfolio_item)} 
         assigns(:portfolio_item).should eq(portfolio_item)
       end
 
       it "redirects to the portfolio_item" do
         portfolio_item = create :portfolio_item
-        put :update, {:id => portfolio_item.to_param, :portfolio_item => valid_attributes} 
+        put :update, {:id => portfolio_item.to_param, portfolio_item: FactoryGirl.attributes_for(:portfolio_item)} 
         response.should redirect_to(portfolio_item)
       end
     end
@@ -170,5 +187,4 @@ describe PortfolioItemsController do
       response.should redirect_to(portfolio_items_url)
     end
   end
-
 end

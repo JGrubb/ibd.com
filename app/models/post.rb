@@ -9,10 +9,6 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
-  def self.pub_and_sorted
-    all.to_ary.select { |a| a.published? }.sort { |a, b| a.created_at <=> b.created_at }
-  end
-
   def self.searchable_language
     'english'
   end
