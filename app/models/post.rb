@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.tagged_with(name)
-    Tag.find_by(name: name).articles
+    Tag.find_by(name: name).posts
   end
 
   def self.tag_counts

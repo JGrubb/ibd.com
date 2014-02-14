@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     expires_in 2.hours, public: true
   end
 
+  def by_tag
+    @posts = Post.tagged_with(params[:tag])
+    render :index
+  end
+
   def search
     @posts = Post.basic_search(params[:q]).published
     render :index
@@ -60,7 +65,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_date_path(@post.year, @post.month, @post.slug), notice: 'Post was successfully created.' }
+        format.html { redirect_to post_date_path(@post.year, @post.month, @post.slug), notice: "#{@post.title} was successfully created." }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -74,7 +79,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_date_path(@post.year, @post.month, @post.slug), notice: 'Post was successfully created.' }
+        format.html { redirect_to post_date_path(@post.year, @post.month, @post.slug), notice: "#{@post.title} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -96,7 +101,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.friendly.find(params[:id])
+      @post = Post.includes(:tags).friendly.find(params[:id])
     end
 
     def verify_published
