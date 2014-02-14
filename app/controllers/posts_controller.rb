@@ -58,7 +58,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_date_path(@post.year, @post.month, @post.slug), notice: 'Post was successfully created.' }
@@ -108,6 +107,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :summary, :published, images_attributes: [:id, :caption, :image])
+      params.require(:post).permit(:title, :body, :summary, :published, :tag_list, images_attributes: [:id, :caption, :image])
     end
 end

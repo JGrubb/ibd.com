@@ -93,7 +93,7 @@ describe PostsController do
       end
 
       it "assigns a newly created post as @post" do
-        post :create, {:post => valid_attributes}
+        post :create, { :post => attributes_for(:post) }
         assigns(:post).should be_a(Post)
         assigns(:post).should be_persisted
       end
@@ -104,6 +104,11 @@ describe PostsController do
                                       Post.last.year, 
                                       Post.last.month,
                                       Post.last.slug))
+      end
+
+      it "allows tags to be added to posts" do
+        post :create, { post: attributes_for(:post_with_tags) }
+        expect(Post.last.tags.count).to eq(1)       
       end
     end
 
