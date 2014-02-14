@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
   end
 
   def tag_list
-    tags.map(&:name).join(", ").titleize
+    tags.map(&:name).join(", ")
   end
 
   def tag_list=(names)

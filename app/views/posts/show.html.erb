@@ -8,7 +8,7 @@
       </div>
       <div class="body">
         <%= markdown_filter @post.body %>
-        <p>Filed under: <%= tags_link %></p>
+        <p><% if @post.tags.any? %>Filed under: <%= tags_link %><% end %></p>
       </div>
       <%= render 'links' %>
       <% if user_signed_in? %>
