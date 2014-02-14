@@ -108,7 +108,7 @@ describe PostsController do
 
       it "allows tags to be added to posts" do
         post :create, { post: attributes_for(:post_with_tags) }
-        expect(Post.last.tags.count).to eq(1)       
+        expect(Post.last.tags.count).to eq(3)       
       end
     end
 
