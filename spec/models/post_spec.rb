@@ -24,4 +24,18 @@ describe Post do
       expect(@post.year).to eq("2014")
     end
   end
+
+  describe "Tag methods" do
+    before :each do
+      @post = create :post_with_tags
+    end
+
+    it "correctly parses the tag_list" do
+      expect(@post.tags.count).to eq(3)
+    end
+
+    it "finds posts by tag" do
+      expect(Post.tagged_with('this').count).to eq(1)
+    end
+  end
 end
