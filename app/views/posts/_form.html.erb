@@ -1,10 +1,19 @@
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
 
-  <div class="large-9 medium-9 column">
+  <div class="large-10 medium-10 large-centered column">
     <div class="form-inputs row">
-      <%= f.input :title, wrapper_html: { class: "large-6 medium-6 column" } %>
-      <%= f.input :body, wrapper_html: { class: "large-12 medium-12 column" } %>
+      <div class="large-6 medium-6 column">
+        <h5>Title</h5>
+        <%= f.input :title, label: false %>
+      </div>
+      <div class="large-4 medium-4 column end">
+        <h5>Tags</h5>
+        <div class="field">
+          <%= f.text_field :tag_list %>
+        </div>
+      </div>
+      <%= f.input :body, label: false, wrapper_html: { class: "large-12 medium-12 column" } %>
       <%= f.input :summary, wrapper_html: { class: "large-12 medium-12 column" } %>
       <div id="uploads">
         <%= f.simple_fields_for :images do |nf| %>
@@ -20,12 +29,6 @@
         }, class: "button tiny radius secondary"
       %>
     </div>
-    </div>
-  </div>
-  <div class="large-3 medium-3 column">
-    <h5>Tags</h5>
-    <div class="field">
-      <%= f.text_field :tag_list %>
     </div>
   </div>
 
