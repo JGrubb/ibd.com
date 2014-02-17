@@ -34,7 +34,7 @@
   <div class="large-3 medium-3 column">
     <h5>Tags that exist already</h5>
     <ul>
-      <% Tag.all.each do |tag| %>
+      <% Tag.order(:name).each do |tag| %>
         <li><%= tag.name %></li>
       <% end %>
     </ul>

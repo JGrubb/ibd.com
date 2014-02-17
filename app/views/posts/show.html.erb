@@ -1,4 +1,4 @@
-<% cache_if current_user.nil?, [ "post", @post ] do %>
+<% cache [ "post", current_user || "anon", @post ] do %>
   <div id="post" class="row">
 
     <div class="large-8 medium-8 large-centered medium-centered column">
@@ -11,9 +11,6 @@
         <p><% if @post.tags.any? %>Filed under: <%= tags_link %><% end %></p>
       </div>
       <%= render 'links' %>
-      <% if user_signed_in? %>
-        <%= link_to 'Edit', edit_post_path(@post), class: "tiny radius button" %>
-      <% end %>
       <div id="disqus_thread"></div>
       <%= render 'links' %>
     </div>
@@ -21,6 +18,9 @@
   </div>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_post_path(@post), class: "tiny radius button" %>
+<% end %>
 <% content_for :scripts do %>
   <script type="text/javascript">
     var disqus_shortname = 'ignoredbydinosaurs'; // required: replace example with your forum shortname
