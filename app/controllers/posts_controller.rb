@@ -39,8 +39,6 @@ class PostsController < ApplicationController
   def show
     posts = Post.published.sorted.reverse_order
      
-    expires_in 5.minutes, public: true unless signed_in?
-
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
 
