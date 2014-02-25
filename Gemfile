@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'cocoon'
 gem 'sitemap_generator'
 gem 'dalli'
+gem 'redis-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -76,3 +77,4 @@ gem 'rack-cache'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'unicorn'
