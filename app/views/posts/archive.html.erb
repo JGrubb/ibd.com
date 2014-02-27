@@ -1,6 +1,6 @@
 <div id="archive" class="row">
   <h2 class="large-12 column">All blog posts</h2>
-  <% cache [ "archive", @posts_by_year.first.first ] do %>
+  <% cache [ @posts_by_year.first.last ] do %>
     <% @posts_by_year.each do |year| %>
       <% cache [ "archive", year[1].size ] do %>
         <h3 id="<%= year[0] %>"><%= year[0] %></h3>
