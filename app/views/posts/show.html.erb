@@ -8,10 +8,21 @@
       </div>
       <div class="body">
         <%= markdown_filter @post.body %>
+        <p><a href="https://twitter.com/JohnnyGrubb" class="small button" id="twitter-link" target="_new">Me on Twitter</a></p>
         <p><% if @post.tags.any? %>Filed under: <%= tags_link %><% end %></p>
       </div>
       <%= render 'links' %>
+      <!-- left_boombox -->
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:300px;height:250px"
+        data-ad-client="ca-pub-8462997423242867"
+        data-ad-slot="7595780432"></ins>
       <div id="disqus_thread"></div>
+      <!-- right_boombox -->
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:300px;height:250px"
+        data-ad-client="ca-pub-8462997423242867"
+        data-ad-slot="3025980039"></ins>
       <%= render 'links' %>
     </div>
 
@@ -29,5 +40,10 @@
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+  </script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 <% end %>

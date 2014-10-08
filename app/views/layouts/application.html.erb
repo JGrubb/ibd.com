@@ -90,7 +90,9 @@
 
       ga('create', 'UA-8646459-1', 'ignoredbydinosaurs.com');
       ga('send', 'pageview');
-
+      $('#most-recent a').on('click', function() { ga('send', 'event', 'link', 'click', 'recent posts', this.href) });
+      $('#some-random a').on('click', function() { ga('send', 'event', 'link', 'click', 'random posts', this.href) });
+      $('a#twitter-link').on('click', function() { ga('send', 'event', 'link', 'click', 'twitter link', this.href) });
     </script>
     <%= yield :scripts %>
   </body>
