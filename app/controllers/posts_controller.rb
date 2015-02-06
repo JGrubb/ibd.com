@@ -23,9 +23,12 @@ class PostsController < ApplicationController
   def archive
     posts = Post.published.sorted.reverse_order
     years = (2009..Time.now.year).to_a.reverse
-    @posts_by_year = {}
-    years.each do |year|
-      @posts_by_year[year.to_s] = posts.select { |a| a.created_at.year == year }
+    if stale?(etag: posts, last_modified: posts.first.updated_at, public: true)
+      @posts_by_year = {}
+      years.each do |year|
+        @posts_by_year[year.to_s] = posts.select { |a| a.created_at.year == year }
+      end
+      expires_in 7.days, public: true
     end
   end
 
