@@ -71,8 +71,6 @@ end
 # gem 'unicorn'
 gem 'thin'
 
-gem 'rack-cache'
-
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
