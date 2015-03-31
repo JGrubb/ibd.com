@@ -59,6 +59,8 @@ group :development, :test do
   gem 'meta_request'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'test-unit'
+  gem 'sqlite3'
 end
 
 group :test do
