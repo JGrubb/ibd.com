@@ -16,54 +16,11 @@
   </head>
 
   <body>
-  <div class="off-canvas-wrap">
-    <div class="inner-wrap">
       <div id="header">
-        <div class="contain-to-grid">
-          <nav class="top-bar" data-topbar>
-            <section class="top-bar-section">
-              <div class="show-for-small">
-                <a class="left-off-canvas-toggle menu-icon">
-                  <span>Menu</span>
-                </a>
-              </div>
-              <ul class="title-area">
-                <li class="name"></li>
-              </ul>
-              <ul class="right">
-                <li><%= link_to "Blog", post_index_path %></li>
-                <li><%= link_to "Portfolio", portfolio_items_path %></li>
-                <li class="has-form">
-                  <div id="search" class="row collapse">
-                    <%= form_tag '/posts/search', method: :get do %>
-                      <div class="large-8 medium-8 small-9 column"><%= text_field_tag :q %></div>
-                      <div class="large-4 medium-4 small-3 column text-center"><%= submit_tag :search, class: "secondary button tiny radius" %></div>
-                    <% end %>
-                  </div>
-                </li>
-              </ul>
-            </section>
-          </nav>
-          <aside class="left-off-canvas-menu">
-            <ul class="off-canvas-list">
-              <li><%= link_to "Blog", post_index_path %></li>
-              <li><%= link_to "Portfolio", portfolio_items_path %></li>
-              <!--<li class="has-form">
-              <div id="search" class="row collapse">
-                <%= form_tag '/posts/search', method: :get do %>
-                  <div class="large-9 medium-8 small-9 column"><%= text_field_tag :q %></div>
-                  <div class="large-3 medium-4 small-3 column text-center"><%= submit_tag :search, class: "secondary button tiny radius" %></div>
-                <% end %>
-              </div>
-              </li>-->
-            </ul>
-          </aside>
-
-          <a class="exit-off-canvas"></a>
-
-        </div>
-        <div class="row" id="brand">
-          <h1 class="large-12 column"><%= link_to "Ignored By Dinosaurs", root_path %></h1>
+        <div class="container">
+          <div class="row" id="brand">
+            <h1 class="column"><%= link_to "Ignored By Dinosaurs", root_path %></h1>
+          </div>
         </div>
       </div>
       <div id="messages" class="row">
@@ -76,11 +33,14 @@
       </div>
 
 
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      
+        <%= render 'layouts/footer' %>
 
-      <%= render 'layouts/footer' %>
-    </div>
-  </div>
+      
+
     <%= javascript_include_tag "application" %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
