@@ -44,6 +44,7 @@ class PostsController < ApplicationController
      
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
+    expires_in 7.days, public: true
 
     @previous = posts.select { |p| p.created_at < @post.created_at }.first
     @next = posts.select { |p| p.created_at > @post.created_at }.reverse.first
