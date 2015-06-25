@@ -1,50 +1,56 @@
-<%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="large-9 medium-9 column">
-    <div class="form-inputs row">
-      <div class="large-8 medium-8 column">
-        <h5>Title</h5>
-        <%= f.input :title, label: false %>
-      </div>
-      <div class="large-4 medium-4 column end">
-        <h5>Tags</h5>
-        <div class="field">
-          <%= f.text_field :tag_list %>
+  <%= simple_form_for(@post) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="row">
+      <div class="nine columns">
+        <div class="form-inputs row">
+          <div class="eight columns">
+            <h5>Title</h5>
+            <%= f.input :title, label: false, input_html: { class: "u-full-width" } %>
+          </div>
+          <div class="four columns end">
+            <h5>Tags</h5>
+            <div class="field">
+              <%= f.text_field :tag_list, class: "u-full-width" %>
+            </div>
+          </div>
+          <%= f.input :body, label: false, input_html: { class: "u-full-width" } %>
+          <%= f.input :summary, input_html: { class: "u-full-width" } %>
+          <div id="uploads">
+            <%= f.simple_fields_for :images do |nf| %>
+              <%= render 'image_fields', :f => nf %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row" id="add-more">
+          <div class="twelve columns">
+            <%= link_to_add_association "add image", f, :images,  data: {
+              'association-insertion-node' => '#uploads',
+              'association-insertion-method' => 'append'
+            }, class: "button tiny radius secondary"
+          %>
+        </div>
         </div>
       </div>
-      <%= f.input :body, label: false, wrapper_html: { class: "large-12 medium-12 column" } %>
-      <%= f.input :summary, wrapper_html: { class: "large-12 medium-12 column" } %>
-      <div id="uploads">
-        <%= f.simple_fields_for :images do |nf| %>
-          <%= render 'image_fields', :f => nf %>
-        <% end %>
+      <div class="three columns">
+        <h5>Tags that exist already</h5>
+        <ul>
+          <% Tag.order(:name).each do |tag| %>
+            <li><%= tag.name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
-    <div class="row" id="add-more">
-      <div class="large-12 medium-12 column">
-        <%= link_to_add_association "add image", f, :images,  data: {
-          'association-insertion-node' => '#uploads',
-          'association-insertion-method' => 'append'
-        }, class: "button tiny radius secondary"
-      %>
+    
+    <div class="row">
+      <div class="twelve columns">
+        <div class="form-actions">
+          <%= f.input :published %>
+          <%= f.button :submit, class: "button-primary" %>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
-  <div class="large-3 medium-3 column">
-    <h5>Tags that exist already</h5>
-    <ul>
-      <% Tag.order(:name).each do |tag| %>
-        <li><%= tag.name %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="large-12 medium-12 column">
-    <div class="form-actions">
-      <%= f.input :published %>
-      <%= f.button :submit, class: "radius" %>
-    </div>
-  </div>
-  </div>
-<% end %>
+    
+  <% end %>
+  

@@ -1,7 +1,6 @@
 <div id="portfolio-index" class="row">
   <h2 class="large-12 column">Portfolio</h2>
 
-<% cache [ "portfolio", @portfolio_items.maximum(:updated_at) ] do %>
   <% @portfolio_items.each do |item| %>
       <div class="large-4 medium-6 column item">
         <div><%= link_to image_tag(item.featured_image_url(:featured_square), class: "th"), item %></div>
@@ -13,5 +12,4 @@
   <% if user_signed_in? %>
   <div class="large-12 column"><%= link_to 'New Portfolio item', new_portfolio_item_path %></div>
   <% end %>
-<% end %>
 </div>

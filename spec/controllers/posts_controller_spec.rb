@@ -35,7 +35,8 @@ describe PostsController do
       post = create :post
       get :archive
       post_blob = {
-        "2014" => [post],
+        "2015" => [post],
+        "2014" => [],
         "2013" => [],
         "2012" => [],
         "2011" => [],
@@ -46,6 +47,7 @@ describe PostsController do
     end
 
     it "renders the archive template" do
+      post = create :post
       get :archive
       response.should render_template :archive
     end

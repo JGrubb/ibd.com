@@ -1,7 +1,6 @@
-<% cache [ @post, @next || "none" ] do %>
   <div id="post" class="row">
 
-    <div class="large-8 medium-8 large-centered medium-centered column">
+    <div class="nine columns centered">
       <div>
         <h2 class="title"><%= @post.title %></h2>
         <time><%= @post.created_at.strftime('%A %B %d, %Y - %I:%M%p') %></time>
@@ -17,7 +16,6 @@
     </div>
 
   </div>
-<% end %>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_post_path(@post), class: "tiny radius button" %>
@@ -30,10 +28,5 @@
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-  </script>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 <% end %>

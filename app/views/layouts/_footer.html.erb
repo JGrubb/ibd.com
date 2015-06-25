@@ -1,36 +1,37 @@
 <div id="footer">
-  <div class="row">
-    <section id="bio" class="large-4 medium-4 column">
-    <h4>Hello.</h4>
-    <p>You probably know me or have known me, but this is my blog and portfolio. My name is John or Johnny, depending on what time of day we typically talk. I'm a musician and web developer, which means that I make web sites work. This site is the home of my consultancy and side projects. <a href="mailto:therealjohnnygrubb@gmail.com">Please feel free to drop me a line</a>.</p>
-    </section>
-    <section id="most-recent" class="large-4 medium-4 column">
-      <h4>Most recent</h4>
-      <% cache [ "footer", @first.maximum(:created_at) ] do %>
+  <div class="container">
+    <div class="row">
+      <section id="bio" class="four columns">
+      <h4>Hello.</h4>
+      <p>You probably know me or have known me, but this is my blog and portfolio. My name is John or Johnny, depending on what time of day we typically talk. I'm a musician and web developer, which means that I make web sites work. This site is the home of my consultancy and side projects. <a href="mailto:therealjohnnygrubb@gmail.com">Please feel free to drop me a line</a>.</p>
+      </section>
+      <section id="most-recent" class="four columns">
+        <h4>Most recent</h4>
         <% @first.each do |p| %>
           <h6><%= link_to p.title, post_date_path_helper(p) %></h6>
         <% end %>
+      </section>
+      <section id="some-random" class="four columns">
+        <h4>Some random posts</h4>
+        <% @all.each do |p| %>
+          <div>
+            <h6><%= link_to p.title, post_date_path_helper(p) %><small> <%= p.created_at.strftime('%b \'%y') %></small></h6>
+          </div>
+        <% end %>
+      </section>
+    </div>
+    <div class="row">
+      <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb <br /> 
+      <% if user_signed_in? %>
+        <%= link_to "logout", destroy_user_session_path, data: { method: :delete } %> | 
+        <%= link_to "new post", new_post_path %> | 
+        <%= link_to "new portfolio", new_portfolio_item_path %>
+      <% else %>
+        <%= link_to "login", new_user_session_path %>
       <% end %>
-    </section>
-    <section id="some-random" class="large-4 medium-4 column">
-      <h4>Some random posts</h4>
-      <% @all.each do |p| %>
-        <div>
-          <h6><%= link_to p.title, post_date_path_helper(p) %><small> <%= p.created_at.strftime('%b \'%y') %></small></h6>
-        </div>
-      <% end %>
-    </section>
+      </p>
+    </div>
   </div>
-  <div class="row">
-    <p id="copyright">&copy; 2009 - <%= Time.now.year %> Johnny Grubb <br /> 
-    <% if user_signed_in? %>
-      <%= link_to "logout", destroy_user_session_path, data: { method: :delete } %> | 
-      <%= link_to "new post", new_post_path %> | 
-      <%= link_to "new portfolio", new_portfolio_item_path %>
-    <% else %>
-      <%= link_to "login", new_user_session_path %>
-    <% end %>
-    </p>
-  </div>
+  
 </div>
 
