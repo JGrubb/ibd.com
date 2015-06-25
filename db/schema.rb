@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210200727) do
+ActiveRecord::Schema.define(version: 20150625205113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -62,9 +63,11 @@ ActiveRecord::Schema.define(version: 20140210200727) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
+  add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
   add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
 
   create_table "taggings", force: true do |t|
