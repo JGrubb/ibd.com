@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     if stale?(etag: posts, last_modified: posts.first.updated_at.utc, public: true)
       @posts_by_year = {}
       years.each do |year|
-        @posts_by_year[year.to_s] = posts.select { |a| a.created_at.year == year }
+        @posts_by_year[year.to_s] = posts.select { |a| a.published_at.year == year }
       end
       expires_in 7.days, public: true
     end
