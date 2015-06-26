@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def feed
-    @posts = Post.published.sorted.reverse_order.first(20)
+    @posts = Post.published.order(published_at: :desc).first(20)
     expires_in 2.hours, public: true
   end
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def archive
-    posts = Post.published.sorted.reverse_order
+    posts = Post.published.order(published_at: :desc)
     years = (2009..Time.now.year).to_a.reverse
     if stale?(etag: posts, last_modified: posts.first.updated_at.utc, public: true)
       @posts_by_year = {}
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    posts = Post.published.sorted.reverse_order
+    posts = Post.published.order(published_at: :desc)
      
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
@@ -114,6 +114,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :summary, :published, :tag_list, images_attributes: [:id, :caption, :image])
+      params.require(:post).permit(:title, :body, :summary, :published, :published_at, :tag_list, images_attributes: [:id, :caption, :image])
     end
 end
