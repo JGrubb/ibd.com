@@ -1,0 +1,289 @@
+<style>
+            @page  
+            { 
+                size: auto;   /* auto is the initial value */ 
+                /* this affects the margin in the printer settings */ 
+                margin: 8mm auto 8mm auto;  
+            } 
+            body  
+            { 
+                /* this affects the margin on the content before sending to printer */ 
+                margin: 0px;  
+            }
+            @media all {
+                .page-break  { display: none; }
+            }
+            @media print {
+                .page-break  { display: block; page-break-before: always; }
+                .no-print, title { display: none; }
+                .profiler-results { display: none; }
+            }
+            table { page-break-inside:auto }
+            tr, div.group { page-break-inside:avoid; page-break-after:auto }
+            thead { display:table-header-group }
+            tfoot { display:table-footer-group }
+            ul li, ol li {
+                margin-left: 0px;
+                padding-left: 0px;
+            }
+
+            table {
+                clear: both;
+                padding-top: 50px;
+            }
+            .dialog-content {
+                padding: 40px 20px 0 20px;
+                width: 800px;
+            }
+            .address {
+                float: right;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                vertical-align: top;
+                text-align: left;
+                padding-right: 12px;
+                min-width: 120px;
+            }
+            td, th {
+                margin: 10px 0 20px 0;
+                font-size: 14px;
+            }
+            td, th
+            {
+                padding: 20px 0;
+                border-bottom: solid 1px #ccc;
+            }
+            td.group .group {
+                padding-top: 15px;
+                border-top: solid 1px #ddd;
+                margin-top: 15px;
+            }
+            td.group .group:first-child {
+                border-top: none;
+                padding-top: 0;
+                margin-top: 0;
+            }
+            tbody tr {
+                page-break-inside: avoid;
+                page-break-before: avoid;
+            }
+            .group b {
+                float: right;
+                font-size: 13px;
+                margin-bottom: 5px;
+                font-weight: normal;
+                font-style: italic;
+            }
+            p {
+                margin-bottom: 5px;
+            }
+            ul {
+                margin-left: 0px;
+                padding-left: 17px;
+            }
+            ol {
+                margin-left: 0px;
+                padding-left: 17px;
+            }
+
+            h4 {
+                margin-bottom: 5px;
+            }
+            h4 i {
+                font-weight: normal;
+                font-size: 13px;
+            }
+            h4 small {
+                display: block;
+                float: right;
+                font-weight: normal;
+            }
+            h4 small, h4 b, h4 a {
+                text-align: right;
+                padding-left: 5px; 
+                white-space: nowrap;
+            }
+            .tags {
+                margin: 5px 10px 10px 0;
+                width: 450px;
+                min-height: 20px;
+                padding-bottom: 5px;
+                font-style: italic;
+            }
+            .tags em {
+                color: #999;
+                font-style: normal;
+                display: none;
+            }
+            #page-footer2 {
+                page-break-inside: avoid;
+                position: static;
+                bottom: 0;
+                padding: 20px;
+                width: 800px;
+                background: #fff;
+            }
+            tfoot td {
+                border-bottom: none;
+                padding-top: 40px;
+            }
+            #profile-link {
+                margin: 10px 0 0 0;
+            }
+            .skills strong {
+                font-size: 13px;
+                display: inline-block;
+                width: 60px;
+            }
+
+            body.lang-fr .skills strong {
+                width: 80px;
+            }
+        </style>
+
+
+<div class="dialog-body">
+    <div class="dialog-content">
+        <div id="subheader">
+            <div class="address">
+                <div>
+                    Newton, NJ, United States
+                </div>
+                <div>
+                    grubb@johnnygrubb.com
+                </div>
+                <div>
+                    http://www.ignoredbydinosaurs.com
+                </div>
+            </div>
+            <h2>
+                John Grubb
+            </h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <img id="logo" alt="Stack Overflow Careers" align="right" width="190" src="//cdn-careers.sstatic.net/careers/Img/logos/logo-soCareers-380.png?v=61ca0e7949b9" name="logo">
+                        <div id="profile-link">
+                            See John Grubb's Stack Overflow Careers profile at: <a href=""></a>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <th>
+                        About Me
+                    </th>
+                    <td>
+                        <p>
+                            Team Lead Developer with a very broad background currently working in publishing and advertising in Northern New Jersey. I've got deep experience with PHP, Ruby, Javascript, and SQL and can wrangle the entire stack from provisioning a farm with Ansible to putting the lipstick on with CSS.
+                        </p>
+                        <p>
+                            I'm currently leading a team of Drupal developers at a medium sized publishing house in Rockaway NJ. We push the technical envelope every day and are way ahead of the pack in the "decoupled Drupal" approach that is gaining favor these days.
+                        </p>
+                        <p>
+                            Lately I (still) enjoy writing javascript, and have slowly become an expert in analytics, advertising, and many things "DevOps".
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Technical Skills
+                    </th>
+                    <td class="skills">
+                        <div>
+                            <strong>Like:</strong> open-source, front-end, ui, ux, js, css, php, ruby, rails, sass, apache, git, nginx, amazon-s3, amazon-ec2, drupal, vagrant, varnish, ansible
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Experience
+                    </th>
+                    <td class="experience group">
+                        <div class="group">
+                            <h4 style="white-space: nowrap">
+                                <small><b>September 2012 – Current</b></small> Development Team Lead <i>- Advantage Business Media</i>
+                            </h4>
+                            <div class="tags">
+                                <em>technologies:</em> drupal acquia amazon-ec2 amazon-web-services amazon-s3 ruby sinatra mysql redmine angularjs nginx mule soa google-analytics adobe-analytics varnish fastly solr
+                            </div>
+                            <%= markdown_filter @abm_resume %>
+                        </div>
+                        <div class="group">
+                            <h4 style="white-space: nowrap">
+                                <small><b>July 2008 – March 2013</b></small> Freelance developer <i>- Self</i>
+                            </h4>
+                            <div class="tags">
+                                <em>technologies:</em> php css js drupal wordpress jquery ruby-on-rails sysadmin apache nginx git mysql
+                            </div>
+                            <p>
+                                Mostly PHP freelance CMS developer for the last few years - Drupal specifically. More recently very interested in the DOM and all that front end business. Much more recently building little projects with Rails, moving away from PHP as a primary toolkit. Latest developments center around the addition of MongoDB to my bag of tricks.
+                            </p>
+                            <p>
+                                Very comfortable with SSH and Linux administration - experienced with Debian flavors. Prefer Git as SCM, but can manage with SVN. I'm more familiar with Apache administration because I've been doing it longer, but I'm acquainted with Nginx. I have built a production Rails stack from scratch with MySQL (then MongoDB), Nginx and Passenger, so I am familiar with why people use Heroku, but I also know how to fit a production app neatly inside of 256MB.
+                            </p>
+                            <ul>
+                                <li>http://www.capson.com/ - responsible for the entire site build, theme, and functionality as well as interfacing with a variety of tracking and CRM products.
+                                </li>
+                                <li>http://harrisschool.uchicago.edu/ - Came on after IA was completed as initial site build had begun and was responsible for most of the front theming, and all of the front end finish work.
+                                </li>
+                                <li>http://www.fieldglass.com/ - Built the theme around Omega/Context/Delta. Built the custom mega-menu.
+                                </li>
+                                <li>http://www.ignoredbydinosaurs.com/portfolio - the rest of my portfolio.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="group">
+                            <h4 style="white-space: nowrap">
+                                <small><b>March 2003 – December 2009</b></small> Owner / Bassist <i>- Railroad Earth LLC</i>
+                            </h4>
+                            <div class="tags">
+                                <em>technologies:</em> pro-tools mesa-boogie upright-bass
+                            </div>
+                            <p>
+                                Owner and bassist of independent band Railroad Earth. Over the course of 7 years, grew business from $150k yearly revenue to over $1M with very little label support.
+                            </p>
+                            <p>
+                                Responsibilities included forecasting tour schedules, merchandise sales, and making time to create new product (songs) and to improve our current offerings.
+                            </p>
+                            <p>
+                                While with the group, I used my recording and production background and degree to produce or co-produce 2 of the 3 albums that I was involved with making. Acted as recording archivist and created the live downloaded recording product which grew into a decent revenue stream for the band. My last two years in the band I grew into the webmaster role, and this was my avenue into technology in general. Our website was terrible and languished for so long that I decided to take it upon myself to improve the situation. I had no idea how deep the rabbit hole would be, but while researching discovered lots of uncovered ground in the marketplace where music and technology intersect.
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Education
+                    </th>
+                    <td class="education group">
+                        <div class="group">
+                            <b>1996 – 2001</b>
+                            <h4>
+                                BS Music Industries Studies, recording and production <i>- Appalachian State University</i>
+                            </h4>
+                            <div class="tags">
+                                <em>technologies:</em> pro-tools analog-tape
+                            </div>
+                            <p>
+                                Primarily worked as a musician through college and achieved my collegiate goal of never having to work a "normal" job. Market analysis early in college showed that while the guitar player space was completely saturated, the field for an upright bassist who read well and played a variety of styles was wide open, so I was able to work between 4 and 7 nights a week while getting my degree in Recording and Production.
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

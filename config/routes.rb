@@ -13,6 +13,8 @@ IbdCom::Application.routes.draw do
   get 'feed' => 'posts#feed', defaults: { format: :atom }, as: :feed
   get 'rss.xml' => redirect('feed')
   get 'tags/:tag', to: 'posts#by_tag', as: :tag
+  
+  get 'resume', to: 'posts#resume', as: :resume
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

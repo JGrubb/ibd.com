@@ -36,6 +36,11 @@ class PostsController < ApplicationController
     @posts = Post.where(published: false)
     render :index
   end
+  
+  def resume
+    @abm_resume = File.open("#{Rails.public_path}/abm_resume.md").read
+    render :layout => false
+  end
 
   # GET /posts/1
   # GET /posts/1.json
