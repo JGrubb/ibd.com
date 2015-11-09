@@ -9,6 +9,7 @@
             { 
                 /* this affects the margin on the content before sending to printer */ 
                 margin: 0px;  
+                font-family: Baskerville, serif;
             }
             @media all {
                 .page-break  { display: none; }
@@ -34,6 +35,7 @@
             .dialog-content {
                 padding: 40px 20px 0 20px;
                 width: 800px;
+                margin: auto;
             }
             .address {
                 float: right;
@@ -49,7 +51,8 @@
             }
             td, th {
                 margin: 10px 0 20px 0;
-                font-size: 14px;
+                font-size: 100%;
+                line-height: 1.3;
             }
             td, th
             {
@@ -170,16 +173,6 @@
                     <th></th>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <td colspan="2">
-                        <img id="logo" alt="Stack Overflow Careers" align="right" width="190" src="//cdn-careers.sstatic.net/careers/Img/logos/logo-soCareers-380.png?v=61ca0e7949b9" name="logo">
-                        <div id="profile-link">
-                            See John Grubb's Stack Overflow Careers profile at: <a href=""></a>
-                        </div>
-                    </td>
-                </tr>
-            </tfoot>
             <tbody>
                 <tr>
                     <th>
@@ -187,7 +180,7 @@
                     </th>
                     <td>
                         <p>
-                            Team Lead Developer with a very broad background currently working in publishing and advertising in Northern New Jersey. I've got deep experience with PHP, Ruby, Javascript, and SQL and can wrangle the entire stack from provisioning a farm with Ansible to putting the lipstick on with CSS.
+                            Dev Team Lead with a very broad background currently working in publishing and advertising in Northern New Jersey. I've got deep experience with PHP, Ruby, Javascript, and SQL and can wrangle the entire stack from provisioning a farm with Ansible to putting the lipstick on with CSS.
                         </p>
                         <p>
                             I'm currently leading a team of Drupal developers at a medium sized publishing house in Rockaway NJ. We push the technical envelope every day and are way ahead of the pack in the "decoupled Drupal" approach that is gaining favor these days.
@@ -197,16 +190,7 @@
                         </p>
                     </td>
                 </tr>
-                <tr>
-                    <th>
-                        Technical Skills
-                    </th>
-                    <td class="skills">
-                        <div>
-                            <strong>Like:</strong> open-source, front-end, ui, ux, js, css, php, ruby, rails, sass, apache, git, nginx, amazon-s3, amazon-ec2, drupal, vagrant, varnish, ansible
-                        </div>
-                    </td>
-                </tr>
+
                 <tr>
                     <th>
                         Experience
@@ -216,9 +200,6 @@
                             <h4 style="white-space: nowrap">
                                 <small><b>September 2012 – Current</b></small> Development Team Lead <i>- Advantage Business Media</i>
                             </h4>
-                            <div class="tags">
-                                <em>technologies:</em> drupal acquia amazon-ec2 amazon-web-services amazon-s3 ruby sinatra mysql redmine angularjs nginx mule soa google-analytics adobe-analytics varnish fastly solr
-                            </div>
                             <%= markdown_filter @abm_resume %>
                         </div>
                         <div class="group">

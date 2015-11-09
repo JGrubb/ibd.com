@@ -15,7 +15,7 @@ I've been working with Drupal professionally for 7 years now, starting early in 
 - Services
 - "Headless" Drupal
 
-I'm big on "structured content" as a way out of the morass that is Body field on most sites.  I'm also big on performance and the infrastructure side of the platform.  I much prefer writing code against Drupal than site building and have been wandering deeper into the issue queues of many strategic Drupal modules over the last year.
+I'm big on structured content as a way out of the morass that is Body field on most sites.  I'm also big on performance and the infrastructure side of the platform.  I much prefer writing code against Drupal than site building and have been wandering deeper into the issue queues of many strategic Drupal modules over the last year.
 
 ### Leadership responsibilities
 
@@ -43,7 +43,7 @@ Outside of Drupal we have many other system that collect lead, process analytics
 - Built an AngularJS-based mobile framework for serving up our brands' websites in a very responsive and modern style.  We were doing "Headless Drupal" before the term was coined.
 - Migrated the company's 27 websites (and HTML mobile apps) onto a CDN - [Fastly](http://www.fastly.com/) - and implemented tons of improvements to our caching layer and userland response times.  I'm intimately familiar with Varnish, HTTP headers, and their significance to the business.
 - The aforementioned infrastructure migration.  Cut server response times by 75% and hosting costs by 50%+.
-- Gained extensive familiarity with Apache Solr and it's integrations with Drupal - have built a heavily customized recommendation engine using Solr MLT and metadata on every piece of content going back 15 years.  Pretty much exactly this - http://nytlabs.com/blog/2015/10/20/particles/ - except that we beat the NY Times to market with the machine learning/tagging portion.
+- Gained extensive familiarity with Apache Solr and it's integrations with Drupal - have built a heavily customized recommendation engine using Solr MLT and metadata on every piece of content going back 15 years.  Pretty much exactly this - [http://nytlabs.com/blog/2015/10/20/particles/](http://nytlabs.com/blog/2015/10/20/particles/) - except that we beat the NY Times to market with the machine learning/tagging portion.
 - Provisioned and built out an ElasticSearch cluster to derive greater intelligence from ALL of our logs from ALL of our platforms.
 
 ### Architecture responsibilities
@@ -56,6 +56,6 @@ ABM's biggest, newest project is a re-architect/migration from a SQL Server/SSRS
 
 For fun I hang out in #drupal-support and help new folks out challenges that we all face.  I also have lately been contributing to the Fastly issue queue as well as the Apachesolr and Memcache issue queues.
 
-My drupal.org account is https://www.drupal.org/u/jgrubb.
+My drupal.org account is [https://www.drupal.org/u/jgrubb](https://www.drupal.org/u/jgrubb).
 
-I write a mostly technical blog here - http://www.ignoredbydinosaurs.com/archive - that chronicles most of what I come across that's not already heavily chronicled.  
+I write a mostly technical blog here - [http://www.ignoredbydinosaurs.com/archive](http://www.ignoredbydinosaurs.com/archive) - that chronicles most of what I come across that's not already heavily chronicled.  
