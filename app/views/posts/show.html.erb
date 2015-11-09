@@ -1,3 +1,4 @@
+<% cache @post do %>
   <div id="post" class="row">
 
     <div class="nine columns centered">
@@ -16,6 +17,7 @@
     </div>
 
   </div>
+<% end %>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_post_path(@post), class: "tiny radius button" %>
