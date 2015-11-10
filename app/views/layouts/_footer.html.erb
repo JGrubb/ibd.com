@@ -12,10 +12,10 @@
         <% end %>
       </section>
       <section id="some-random" class="four columns">
-        <h4>Some random posts</h4>
-        <% @all.each do |p| %>
+        <h4>Most Popular</h4>
+        <% @leaderboard.each do |p| %>
           <div>
-            <h6><%= link_to p.title, post_date_path_helper(p) %><small> <%= p.created_at.strftime('%b \'%y') %></small></h6>
+            <h6><%= link_to raw(p["title"]), p["url"] %></h6>
           </div>
         <% end %>
       </section>

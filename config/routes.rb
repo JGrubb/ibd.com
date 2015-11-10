@@ -4,7 +4,7 @@ IbdCom::Application.routes.draw do
     resources :images, shallow: true
   end
   
-  get 's/incr/:id', to: 'stats#incr'
+  post 's/view/:id', to: 'stats#view'
     
 
   resources :posts, except: [:show, :index]

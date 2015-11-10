@@ -12,11 +12,17 @@ class ApplicationController < ActionController::Base
   end
 
   def footer_stuff
+    redis = Redis.new
+    
     count = Post.count
     @first = Post.published.order(published_at: :desc).limit(4)
-    all = []
-    4.times { all << (rand(count) + 1) } if count > 4
-    @all = Post.find(all)
+    all = redis.zrevrange "leaderboard", 0, 3
+    @leaderboard = []
+    all.each do |a|
+      item = redis.get "post:#{a}"
+      @leaderboard.push(JSON.parse item) if item
+      # binding.pry
+    end
   end
 
 end

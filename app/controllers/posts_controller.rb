@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     posts = Post.published.order(published_at: :desc)
     
     redis = Redis.new
-    @count = redis.get("posts:#{@post.id}")
+    @count = redis.get(@post.id)
      
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
