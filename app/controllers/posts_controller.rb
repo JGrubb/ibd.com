@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       years.each do |year|
         @posts_by_year[year.to_s] = posts.select { |a| a.published_at.year == year }
       end
-      expires_in 5.minutes, public: true
+      expires_in 5.minute, public: true
     end
   end
 
@@ -46,6 +46,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     posts = Post.published.order(published_at: :desc)
+    
+    redis = Redis.new
+    @count = redis.get("posts:#{@post.id}")
      
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary

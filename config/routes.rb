@@ -3,6 +3,8 @@ IbdCom::Application.routes.draw do
   resources :portfolio_items, :path => 'portfolio' do
     resources :images, shallow: true
   end
+  
+  get 's/incr/:id', to: 'stats#incr'
     
 
   resources :posts, except: [:show, :index]
