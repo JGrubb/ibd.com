@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       years.each do |year|
         @posts_by_year[year.to_s] = posts.select { |a| a.published_at.year == year }
       end
-      expires_in 1.hour, public: true
+      expires_in 5.minutes, public: true
     end
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
      
     @title = @post.title
     @summary = @post.summary.blank? ? @post.body : @post.summary
-    expires_in 1.hour, public: true
+    expires_in 1.minute, public: true
 
     @previous = posts.select { |p| p.created_at < @post.created_at }.first
     @next = posts.select { |p| p.created_at > @post.created_at }.reverse.first
