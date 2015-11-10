@@ -1,3 +1,4 @@
+<% cache @posts_by_year.first.first do %>
 <div id="archive" class="row">
   <h2 class="twelve column">All blog posts</h2>
     <% @posts_by_year.each do |year| %>
@@ -11,3 +12,4 @@
       <% end %>
     <% end %>
 </div>
+<% end %>
